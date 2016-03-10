@@ -13,4 +13,4 @@
 /.project
 /.settings/
 /.idea/
-/bk/
+/__pycache__/
