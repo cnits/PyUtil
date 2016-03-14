@@ -1,5 +1,6 @@
 from Lib.Curl import *
 from Lib.Mongo import *
+from Lib.PyFile import *
 from Lib.XmlParser import *
 
 
@@ -31,9 +32,22 @@ def curl_test():
     db = MongoDB("test", None, None)
     db.save("books", data, True)
 
+def file_test():
+    path = "files/book_info.txt"
+    try:
+        pyFile = PyFile(path)
+        lines = pyFile.read_lines("r")
+        print(lines)
+    except Exception as ex:
+        print(str(ex))
+
+
 if __name__ == "__main__":
     try:
-        curl_test()
+        # curl_test()
         # mongo_test()
+        # opts, args = getopt.getopt(sys.argv[1:], "hg:d", ["help"])
+        # print(sys.argv[1:])
+        file_test()
     except Exception as ex:
         print(str(ex))

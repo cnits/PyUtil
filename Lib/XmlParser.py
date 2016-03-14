@@ -1,5 +1,6 @@
 from xml.etree.ElementTree import *
 
+
 class XmlParser:
     def __init__(self):
         self.id = range(1)
@@ -9,5 +10,3 @@ class XmlParser:
 
     def to_xml_element(self, xml):
         return XML(xml)
-
-
