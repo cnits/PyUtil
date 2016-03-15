@@ -2,7 +2,7 @@ from xml.etree.ElementTree import *
 import os
 
 
-class XmlParser:
+class CPyXmlParser:
     def __init__(self, xml, encoding="utf-8"):
         self.encoding = encoding
         self.element = None

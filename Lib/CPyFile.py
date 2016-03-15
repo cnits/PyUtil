@@ -1,7 +1,7 @@
 import os
 
 
-class PyFile:
+class CPyFile:
     def __init__(self, path):
         self.path = None
         if os.path.exists(path):

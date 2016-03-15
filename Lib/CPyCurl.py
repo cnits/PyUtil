@@ -4,7 +4,7 @@ import urllib.error
 import urllib.response
 
 
-class Curl:
+class CPyCurl:
     def __init__(self, url, params):
         self.Url = url
         if params is not None:

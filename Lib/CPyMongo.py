@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 
-class MongoDB:
+class CPyMongo:
     def __init__(self, db_name, host=None, port=None):
         if host is None or host == "":
             host = 'localhost'

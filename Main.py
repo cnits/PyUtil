@@ -1,11 +1,11 @@
-from Lib.Curl import *
-from Lib.Mongo import *
-from Lib.PyFile import *
-from Lib.XmlParser import *
+from Lib.CPyCurl import *
+from Lib.CPyMongo import *
+from Lib.CPyFile import *
+from Lib.CPyXmlParser import *
 
 
 def mongo_test(j_data):
-    db = MongoDB("test", None, None)
+    db = CPyMongo("test", None, None)
     # data = db.find('test', {'Id': 3})
     # data = db.find_one('test', None)
     # data = db.distinct('test', "Name", None)
@@ -14,14 +14,14 @@ def mongo_test(j_data):
 
 def curl_test():
     # curl = Curl("http://pythonprogramming.net", {'s': 'basic', 'submit': 'search'})
-    curl = Curl("https://raw.githubusercontent.com/cnits/cnit/master/books.xml", None)
+    curl = CPyCurl("https://raw.githubusercontent.com/cnits/cnit/master/books.xml", None)
     return curl.do_request(None)
 
 
 def file_test():
     path = "files/book_info.txt"
     try:
-        pyFile = PyFile(path)
+        pyFile = CPyFile(path)
         lines = pyFile.read_lines("r")
         print(lines)
     except Exception as ex:
@@ -29,7 +29,7 @@ def file_test():
 
 
 def xml_test(xml):
-    x_parse = XmlParser(xml)
+    x_parse = CPyXmlParser(xml)
     ele_ins = x_parse.get_element()
     data = []
     for ele in ele_ins.getchildren():
