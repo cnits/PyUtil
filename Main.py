@@ -22,6 +22,7 @@ def curl_test():
     data = []
     for ele in ele_ins.getchildren():
         data.append({
+            'bid': ele.get("id"),
             'author': ele.findtext('author'),
             'title': ele.findtext('title'),
             'genre': ele.findtext('genre'),
