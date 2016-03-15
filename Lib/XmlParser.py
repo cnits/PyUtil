@@ -11,7 +11,7 @@ class XmlParser:
             raise
         else:
             if os.path.exists(xml):
-                self.element = self.__parse(xml)
+                self.element = self.__parse(xml).getroot()
             else:
                 self.element = self.__to_xml(xml)
 
