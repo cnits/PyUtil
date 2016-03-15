@@ -1,13 +1,27 @@
 from xml.etree.ElementTree import *
+import os
 
 
 class XmlParser:
-    def __init__(self, encoding="utf-8"):
+    def __init__(self, xml, encoding="utf-8"):
         self.encoding = encoding
-        pass
+        self.element = None
+        if xml is None:
+            print("Xml source is none!")
+            raise
+        else:
+            if os.path.exists(xml):
+                self.element = self.__parse(xml)
+            else:
+                self.element = self.__to_xml(xml)
 
-    def parse(self, _file):
+    @staticmethod
+    def __parse(_file):
         return parse(_file)
 
-    def to_xml_element(self, xml):
+    @staticmethod
+    def __to_xml(xml):
         return XML(xml)
+
+    def get_element(self):
+        return self.element
