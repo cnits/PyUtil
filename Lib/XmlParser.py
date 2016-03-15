@@ -7,8 +7,7 @@ class XmlParser:
         self.encoding = encoding
         self.element = None
         if xml is None:
-            print("Xml source is none!")
-            raise
+            raise ValueError("Xml source is none!")
         else:
             if os.path.exists(xml):
                 self.element = self.__parse(xml).getroot()
