@@ -1,15 +1,20 @@
 from pymongo import MongoClient
-
+try:
+    from urllib.parse import quote_plus
+except Exception:
+    from urllib import quote_plus
 
 class CPyMongo:
-    def __init__(self, db_name, host=None, port=None):
+    def __init__(self, db_name, user=None, password=None, host=None, port=None):
         if host is None or host == "":
             host = 'localhost'
         if port is None or port == "":
             port = 27017
         try:
-            self.dbm = MongoClient(host, port)[db_name]
-
+            if user is None or password is None:
+                self.dbm = MongoClient(host, port)[db_name]
+            else:
+                self.dbm = MongoClient("mongodb://" + user + ":" + quote_plus(password) + "@" + host + ":" + port)[db_name]
         except Exception as ex:
             print(str(ex))
 
