@@ -20,9 +20,20 @@ class CPyMongo:
             print(str(ex))
 
     def find(self, collection, _filter):
+        limit = 0
+        start = 0
         if _filter is None:
             _filter = {}
+        else:
+            if _filter.has_key("limit"):
+                limit = _filter["limit"]
+                _filter.pop("limit")
+            if _filter.has_key("start"):
+                start = _filter["start"]
+                _filter.pop("start")
         result = self.dbm[collection].find(_filter)
+        result.limit(limit)
+        result.skip(start)
         data = []
         for i in result:
             data.append(i)
