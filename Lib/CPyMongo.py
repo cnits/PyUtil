@@ -1,8 +1,9 @@
 from pymongo import MongoClient
 try:
     from urllib.parse import quote_plus
-except Exception:
+except Exception as e:
     from urllib import quote_plus
+
 
 class CPyMongo:
     def __init__(self, db_name, user=None, password=None, host=None, port=None):
@@ -14,7 +15,7 @@ class CPyMongo:
             if user is None or password is None:
                 self.dbm = MongoClient(host, port)[db_name]
             else:
-                self.dbm = MongoClient("mongodb://" + user + ":" + quote_plus(password) + "@" + host + ":" + port)[db_name]
+                self.dbm = MongoClient("mongodb://" + user + ":" + quote_plus(password) + "@" + str(host) + ":" + str(port))[db_name]
         except Exception as ex:
             print(str(ex))
 
@@ -57,5 +58,3 @@ class CPyMongo:
 
     def drop(self, collection):
         self.dbm[collection].drop()
-
-    
