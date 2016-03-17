@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 try:
     from urllib.parse import quote_plus
-except Exception as e:
+except ImportError:
     from urllib import quote_plus
 
 

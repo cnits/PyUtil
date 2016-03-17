@@ -9,8 +9,13 @@ class CPyFile:
         else:
             raise ValueError('File path is not existed!')
 
-    def read_lines(self, mode="r"):
-        r_file = open(self.path, mode=mode)
+    def read_lines(self, read_mode="r"):
+        if read_mode not in ["r", "rb"]:
+            read_mode = "r"
+        r_file = self.get_file(read_mode)
         lines = r_file.readlines()
         r_file.close()
         return lines
+
+    def get_file(self, mode="r"):
+        return open(self.path, mode=mode)

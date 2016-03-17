@@ -3,7 +3,7 @@ try:
     from urllib.parse import *
     from urllib.error import *
     from urllib.response import *
-except:
+except ImportError:
     from urllib2 import *
     import urllib
 
