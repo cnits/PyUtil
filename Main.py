@@ -2,7 +2,12 @@ from Lib.CPyCurl import *
 from Lib.CPyMongo import *
 from Lib.CPyFile import *
 from Lib.CPyXmlParser import *
+from Lib.CPyEquipment import CPyEquipment
 
+
+def equipment_test():
+    eq = CPyEquipment("172.16.4.")
+    eq.test()
 
 def mongo_test(j_data):
     db = CPyMongo("test", None, None)
@@ -46,11 +51,12 @@ def xml_test(xml):
 
 if __name__ == "__main__":
     try:
-        response = curl_test()
-        x_data = xml_test(response)
-        mongo_test(x_data)
+        # response = curl_test()
+        # x_data = xml_test(response)
+        # mongo_test(x_data)
         # opts, args = getopt.getopt(sys.argv[1:], "hg:d", ["help"])
         # print(sys.argv[1:])
         # file_test()
+        equipment_test()
     except Exception as ex:
         print(str(ex))
