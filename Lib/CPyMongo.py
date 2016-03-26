@@ -51,9 +51,9 @@ class CPyMongo:
 
     def update(self, collection, _filter, update, multiple=False, upsert=False):
         if multiple is False:
-            return self.dbm[collection].update_one(_filter, update, upsert)
+            return self.dbm[collection].update_one(_filter, {'$set': update}, upsert)
         else:
-            return self.dbm[collection].update_many(_filter, update, upsert)
+            return self.dbm[collection].update_many(_filter, {'$set': update}, upsert)
 
     def delete(self, collection, _filter, multiple=False):
         if multiple is False:
