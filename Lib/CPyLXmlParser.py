@@ -18,8 +18,5 @@ class CPyLXmlParser:
             parser = etree.HTMLParser()
         return etree.parse(self.xstr, parser)
 
-    def test(self):
-        pass
-
-    def get_element(self):
-        return ""
+    def str_to_element(self):
+        return html.fromstring(self.xstr)
