@@ -21,7 +21,9 @@ def mongo_test(j_data):
 def curl_test():
     # curl = Curl("http://pythonprogramming.net", {'s': 'basic', 'submit': 'search'})
     # curl = CPyCurl("https://raw.githubusercontent.com/cnits/cnit/master/books.xml", None)
-    curl = CPyCurl("http://ccicore.devhost/silverpeak/runin_smart/latest/latest.php?serial=001BBC122B2A", None)
+    curl = CPyCurl("http://ccicore.devhost/silverpeak/runin_smart/latest/latest.php", {
+        'serial': '001BBC122B2A'
+    })
     return curl.do_request(None)
 
 
