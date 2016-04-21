@@ -4,11 +4,13 @@ from Lib.CPyFile import *
 from Lib.CPyXmlParser import *
 from Lib.CPyEquipment import CPyEquipment
 from Lib.CPyLXmlParser import *
+import re
 
 
 def equipment_test():
     eq = CPyEquipment("172.16.4.")
     eq.test()
+
 
 def mongo_test(j_data):
     db = CPyMongo("test", None, None)
@@ -53,16 +55,24 @@ def xml_test(xml):
         })
     return data
 
+
+def equipment():
+    eq = CPyEquipment("")
+    t = eq.cat_command("/proc/cpuinfo")
+    print(t)
+
+
 if __name__ == "__main__":
     try:
-        response = curl_test()
+        # response = curl_test()
         # x_data = xml_test(response)
         # mongo_test(x_data)
         # opts, args = getopt.getopt(sys.argv[1:], "hg:d", ["help"])
         # print(sys.argv[1:])
         # file_test()
         # equipment_test()
-        d = CPyLXmlParser(response)
-        print(d.parse(False).xpath('//a/text()'))
+        # d = CPyLXmlParser(response)
+        # print(d.parse(False).xpath('//a/text()'))
+        equipment()
     except Exception as ex:
         print(str(ex))
