@@ -2,7 +2,7 @@ from pyutil.cpy_curl import *
 from pyutil.cpy_mongo import *
 from pyutil.cpy_file import *
 from pyutil.cpy_xml_parser import *
-from pyutil.pyy_equipment import CPyEquipment
+from pyutil.cpy_equipment import CPyEquipment
 from pyutil.cpy_lxml_parser import *
 import re
 
