@@ -39,7 +39,7 @@ the element. (New in lxml 3.5).
 
 
 class CPyLXmlParser:
-    def __init__ (self, xstr, encoding="utf-8"):
+    def __init__(self, xstr, encoding="utf-8"):
         self.encoding = encoding
         self.xstr = None
         if xstr is None:
