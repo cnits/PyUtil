@@ -1,4 +1,5 @@
 import os
+import shutil
 
 
 class CPyFile:
@@ -19,3 +20,9 @@ class CPyFile:
 
     def get_file(self, mode="r"):
         return open(self.path, mode=mode)
+
+    def delete_file(self):
+        os.remove(self.path)
+
+    def delete_recursive(self):
+        shutil.rmtree(self.path)
