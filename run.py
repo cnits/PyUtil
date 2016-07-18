@@ -5,6 +5,7 @@ from pyutil.cpy_xml_parser import *
 from pyutil.cpy_equipment import CPyEquipment
 from pyutil.cpy_lxml_parser import *
 import re
+from itertools import islice
 
 
 def equipment_test():
@@ -64,6 +65,11 @@ def equipment():
 
 def get_chunks(ls, sz):
     return [ls[i:i + sz] for i in range(0, len(ls), sz)]
+
+
+def get_chunks2(ls, sz):
+    it = iter(ls)
+    return list(iter(lambda: tuple(islice(it, sz)), ()))
 
 
 if __name__ == "__main__":
