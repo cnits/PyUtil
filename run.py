@@ -62,6 +62,10 @@ def equipment():
     print(t)
 
 
+def get_chunks(ls, sz):
+    return [ls[i:i + sz] for i in range(0, len(ls), sz)]
+
+
 if __name__ == "__main__":
     try:
         # response = curl_test()
