@@ -1,7 +1,6 @@
 class CPyEncodingConverter:
     def __init__(self, value):
         self.value = value
-        pass
 
     def to_binary(self):
         return bin(self.value)
