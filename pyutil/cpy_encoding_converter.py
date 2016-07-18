@@ -19,3 +19,16 @@ class CPyEncodingConverter:
 
     def to_hexadecimal(self):
         return hex(self.value)
+
+    def from_bin_to_str(self):
+        s = ""
+        data = str(self.value).split(" ")
+        for i in data:
+            s += chr(int(i, 2))
+        return s
+
+    def from_str_to_bin(self):
+        b = ""
+        for i in self.value:
+            b += " " + str(bin(ord(i))).lstrip("0b")
+        return b
