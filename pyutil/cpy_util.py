@@ -1,3 +1,5 @@
+from itertools import islice
+
 def to_binary(val):
     return bin(val)
 
@@ -34,3 +36,11 @@ def from_str_to_bin(val):
     for i in val:
         b += " " + str(bin(ord(i))).lstrip("0b")
     return b
+
+def get_chunks(ls, sz):
+    return [ls[i:i + sz] for i in range(0, len(ls), sz)]
+
+
+def get_chunks2(ls, sz):
+    it = iter(ls)
+    return list(iter(lambda: tuple(islice(it, sz)), ()))
