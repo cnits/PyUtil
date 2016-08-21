@@ -63,15 +63,6 @@ def equipment():
     print(t)
 
 
-def get_chunks(ls, sz):
-    return [ls[i:i + sz] for i in range(0, len(ls), sz)]
-
-
-def get_chunks2(ls, sz):
-    it = iter(ls)
-    return list(iter(lambda: tuple(islice(it, sz)), ()))
-
-
 if __name__ == "__main__":
     try:
         # response = curl_test()
